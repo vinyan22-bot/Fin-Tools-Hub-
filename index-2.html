@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinTools Hub — Free Financial Calculators & Online Tools</title>
+  <meta name="description" content="Free financial calculators, unit converters, and productivity tools. Calculate loan EMI, compound interest, SIP returns, tax, currency, BMI, and more — all in your browser, no sign-up needed." />
+  <meta name="keywords" content="financial calculator, EMI calculator, compound interest calculator, SIP calculator, loan calculator, currency converter, unit converter, tax calculator, free online tools" />
+  <meta name="author" content="FinTools Hub" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://vinyan.github.io/fintools/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FinTools Hub — Free Financial Calculators & Online Tools" />
+  <meta property="og:description" content="Free financial calculators, unit converters, and productivity tools. No sign-up, works instantly in your browser." />
+  <meta property="og:url" content="https://vinyan.github.io/fintools/" />
+  <meta property="og:image" content="https://vinyan.github.io/fintools/og-image.png" />
+  <meta property="og:site_name" content="FinTools Hub" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FinTools Hub — Free Financial Calculators & Online Tools" />
+  <meta name="twitter:description" content="Free financial calculators and tools. EMI, SIP, compound interest, currency converter and more." />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FinTools Hub",
+    "url": "https://vinyan.github.io/fintools/",
+    "description": "Free financial calculators and productivity tools",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://vinyan.github.io/fintools/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Financial Calculators",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"EMI Calculator","url":"#emi"},
+      {"@type":"ListItem","position":2,"name":"Compound Interest Calculator","url":"#compound"},
+      {"@type":"ListItem","position":3,"name":"SIP Calculator","url":"#sip"},
+      {"@type":"ListItem","position":4,"name":"Loan Amortization","url":"#loan"},
+      {"@type":"ListItem","position":5,"name":"Currency Converter","url":"#currency"},
+      {"@type":"ListItem","position":6,"name":"BMI Calculator","url":"#bmi"}
+    ]
+  }
+  </script>
+
+  <!-- Google AdSense — replace ca-pub-XXXXXXXXXXXXXXXX with your Publisher ID -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:   #0B1220;
+      --slate:  #1A2740;
+      --panel:  #162035;
+      --cyan:   #00D4FF;
+      --gold:   #F5C842;
+      --red:    #FF4F6A;
+      --green:  #22D98A;
+      --text:   #E8EEF8;
+      --muted:  #7A90B0;
+      --border: #243050;
+      --radius: 12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11,18,32,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.15rem;
+      color: var(--cyan); text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-search {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: var(--slate); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.35rem 0.75rem;
+    }
+    .nav-search input {
+      background: none; border: none; outline: none;
+      color: var(--text); font-size: 0.875rem; width: 160px;
+    }
+    .nav-search input::placeholder { color: var(--muted); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem 3rem;
+      max-width: 720px; margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,212,255,0.1);
+      border: 1px solid rgba(0,212,255,0.3);
+      color: var(--cyan);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.3rem 0.9rem; border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--cyan), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      color: var(--muted); font-size: 1.05rem;
+      max-width: 500px; margin: 0 auto 2rem;
+    }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-n {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem; font-weight: 700; color: var(--cyan);
+    }
+    .stat-l { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* CATEGORY TABS */
+    .tabs-wrap {
+      max-width: 1060px; margin: 2rem auto 0; padding: 0 1.5rem;
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: var(--slate); border: 1px solid var(--border);
+      color: var(--muted); font-size: 0.82rem; font-weight: 600;
+      padding: 0.4rem 1rem; border-radius: 20px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--cyan); border-color: var(--cyan);
+      color: var(--navy);
+    }
+
+    /* TOOLS GRID */
+    .tools-section {
+      max-width: 1060px; margin: 2rem auto 0; padding: 0 1.5rem 4rem;
+    }
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    /* TOOL CARD */
+    .tool-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .tool-card:hover { border-color: rgba(0,212,255,0.4); transform: translateY(-2px); }
+    .card-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 1.25rem 0.75rem;
+      cursor: pointer;
+    }
+    .card-icon {
+      width: 38px; height: 38px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .card-title-wrap { flex: 1; min-width: 0; }
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .card-desc { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+    .card-toggle {
+      background: none; border: none; color: var(--muted);
+      cursor: pointer; font-size: 1.1rem; padding: 0.2rem;
+      transition: color 0.2s, transform 0.3s;
+    }
+    .card-toggle.open { transform: rotate(180deg); color: var(--cyan); }
+
+    .card-body {
+      display: none; padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .card-body.open { display: block; }
+
+    /* FORM ELEMENTS */
+    .field { margin-top: 0.9rem; }
+    .field label { font-size: 0.78rem; color: var(--muted); font-weight: 500; display: block; margin-bottom: 0.35rem; }
+    .field input, .field select {
+      width: 100%; background: var(--slate);
+      border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); font-size: 0.9rem;
+      padding: 0.5rem 0.75rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field select:focus { border-color: var(--cyan); }
+    .field input[type="range"] {
+      -webkit-appearance: none; height: 4px;
+      background: var(--border); border: none; padding: 0;
+      border-radius: 2px; cursor: pointer;
+    }
+    .field input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 16px; height: 16px;
+      background: var(--cyan); border-radius: 50%;
+    }
+    .range-val { float: right; color: var(--cyan); font-size: 0.82rem; font-weight: 600; }
+
+    .calc-btn {
+      width: 100%; margin-top: 1rem;
+      background: var(--cyan); color: var(--navy);
+      border: none; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 700;
+      padding: 0.6rem; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .calc-btn:hover { opacity: 0.88; }
+
+    .result-box {
+      margin-top: 1rem;
+      background: rgba(0,212,255,0.06);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 8px; padding: 0.9rem;
+      display: none;
+    }
+    .result-box.show { display: block; }
+    .result-row { display: flex; justify-content: space-between; align-items: baseline; }
+    .result-row + .result-row { margin-top: 0.5rem; border-top: 1px solid rgba(0,212,255,0.12); padding-top: 0.5rem; }
+    .result-label { font-size: 0.78rem; color: var(--muted); }
+    .result-val { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: var(--cyan); }
+    .result-val.gold { color: var(--gold); }
+    .result-val.green { color: var(--green); }
+    .result-val.red { color: var(--red); }
+
+    /* CURRENCY GRID */
+    .cur-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.9rem; }
+    .cur-item { background: var(--slate); border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.75rem; }
+    .cur-code { font-size: 0.7rem; color: var(--muted); font-weight: 600; }
+    .cur-val { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; }
+
+    /* UNIT CONVERTER */
+    .unit-tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .unit-tab { background: var(--slate); border: 1px solid var(--border); color: var(--muted); font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.65rem; border-radius: 6px; cursor: pointer; }
+    .unit-tab.active { background: rgba(0,212,255,0.15); border-color: var(--cyan); color: var(--cyan); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center; padding: 2rem 1.5rem;
+      color: var(--muted); font-size: 0.8rem;
+    }
+    footer a { color: var(--cyan); text-decoration: none; }
+
+    /* HIDDEN tools for tab filtering */
+    .tool-card[data-hidden="true"] { display: none; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .nav-search input { width: 120px; }
+      h1 { font-size: 1.8rem; }
+      .hero-stats { gap: 1.5rem; }
+      .cur-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── AD SLOTS ─────────────────────── */
+    .ad-slot {
+      max-width: 1060px; margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .ad-slot-inner {
+      background: var(--panel);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 90px; position: relative;
+    }
+    .ad-label {
+      position: absolute; top: 4px; left: 8px;
+      font-size: 0.6rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      pointer-events: none;
+    }
+    .ad-slot-inner ins { display: block; width: 100%; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#" aria-label="FinTools Hub Home">Fin<span>Tools</span> Hub</a>
+  <ul class="nav-links">
+    <li><a href="#financial">Finance</a></li>
+    <li><a href="#converters">Converters</a></li>
+    <li><a href="#health">Health</a></li>
+    <li><a href="#math">Math</a></li>
+  </ul>
+  <div class="nav-search">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="searchInput" placeholder="Search tools…" aria-label="Search tools" oninput="filterTools(this.value)" />
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" role="banner">
+  <div class="hero-badge">100% Free · No Sign-up</div>
+  <h1>Your <em>Financial Toolkit</em><br>All in One Place</h1>
+  <p class="hero-sub">Calculate EMI, compound interest, SIP returns, convert currencies, units, and more — instantly in your browser.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-n">20+</div><div class="stat-l">Free Tools</div></div>
+    <div class="stat"><div class="stat-n">0</div><div class="stat-l">Sign-ups Needed</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Browser-Based</div></div>
+  </div>
+</header>
+
+<!-- AD SLOT 1 — Leaderboard below hero -->
+<div class="ad-slot" style="margin-top:2rem">
+  <div class="ad-slot-inner" style="min-height:90px">
+    <span class="ad-label">Advertisement</span>
+    <!-- Replace data-ad-client and data-ad-slot with your AdSense values -->
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:90px"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="1111111111"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+
+<!-- TABS -->
+<nav class="tabs-wrap" aria-label="Tool categories">
+  <button class="tab-btn active" onclick="filterCat('all')">All Tools</button>
+  <button class="tab-btn" onclick="filterCat('finance')">💰 Finance</button>
+  <button class="tab-btn" onclick="filterCat('converter')">🔄 Converters</button>
+  <button class="tab-btn" onclick="filterCat('health')">❤️ Health</button>
+  <button class="tab-btn" onclick="filterCat('math')">🧮 Math</button>
+  <button class="tab-btn" onclick="filterCat('text')">📝 Text</button>
+</nav>
+
+<!-- TOOLS -->
+<main class="tools-section" id="tools" role="main">
+
+  <!-- ━━━━━━━━━━ FINANCE ━━━━━━━━━━ -->
+  <section id="financial" aria-labelledby="finance-head">
+    <p class="section-title" id="finance-head">Financial Calculators</p>
+    <div class="tools-grid">
+
+      <!-- EMI Calculator -->
+      <article class="tool-card" data-cat="finance" id="emi" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <meta itemprop="name" content="EMI Calculator" />
+        <meta itemprop="description" content="Calculate monthly loan EMI with breakdown of principal and interest" />
+        <div class="card-header" onclick="toggle('emi-body','emi-chevron')">
+          <div class="card-icon" style="background:rgba(0,212,255,0.12)">📊</div>
+          <div class="card-title-wrap">
+            <div class="card-title">EMI Calculator</div>
+            <div class="card-desc">Monthly loan installment</div>
+          </div>
+          <button class="card-toggle" id="emi-chevron" aria-label="Expand EMI Calculator">▼</button>
+        </div>
+        <div class="card-body" id="emi-body">
+          <div class="field">
+            <label for="emi-p">Loan Amount (₹)</label>
+            <input type="number" id="emi-p" value="500000" min="1000" placeholder="500000" />
+          </div>
+          <div class="field">
+            <label>Annual Interest Rate — <span class="range-val" id="emi-r-v">8.5%</span></label>
+            <input type="range" id="emi-r" min="1" max="30" step="0.1" value="8.5" oninput="document.getElementById('emi-r-v').textContent=this.value+'%'" />
+          </div>
+          <div class="field">
+            <label>Tenure — <span class="range-val" id="emi-t-v">5 yr</span></label>
+            <input type="range" id="emi-t" min="1" max="30" step="1" value="5" oninput="document.getElementById('emi-t-v').textContent=this.value+' yr'" />
+          </div>
+          <button class="calc-btn" onclick="calcEMI()">Calculate EMI</button>
+          <div class="result-box" id="emi-result">
+            <div class="result-row"><span class="result-label">Monthly EMI</span><span class="result-val gold" id="emi-monthly"></span></div>
+            <div class="result-row"><span class="result-label">Total Payment</span><span class="result-val" id="emi-total"></span></div>
+            <div class="result-row"><span class="result-label">Total Interest</span><span class="result-val red" id="emi-interest"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Compound Interest -->
+      <article class="tool-card" data-cat="finance" id="compound" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <meta itemprop="name" content="Compound Interest Calculator" />
+        <div class="card-header" onclick="toggle('ci-body','ci-chevron')">
+          <div class="card-icon" style="background:rgba(245,200,66,0.12)">📈</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Compound Interest</div>
+            <div class="card-desc">See your money grow over time</div>
+          </div>
+          <button class="card-toggle" id="ci-chevron" aria-label="Expand Compound Interest">▼</button>
+        </div>
+        <div class="card-body" id="ci-body">
+          <div class="field"><label for="ci-p">Principal (₹)</label><input type="number" id="ci-p" value="100000" /></div>
+          <div class="field"><label>Annual Rate — <span class="range-val" id="ci-r-v">10%</span></label><input type="range" id="ci-r" min="1" max="30" step="0.5" value="10" oninput="document.getElementById('ci-r-v').textContent=this.value+'%'" /></div>
+          <div class="field"><label>Years — <span class="range-val" id="ci-t-v">10 yr</span></label><input type="range" id="ci-t" min="1" max="40" step="1" value="10" oninput="document.getElementById('ci-t-v').textContent=this.value+' yr'" /></div>
+          <div class="field"><label for="ci-freq">Compounding</label>
+            <select id="ci-freq">
+              <option value="1">Annually</option>
+              <option value="2">Semi-Annually</option>
+              <option value="4">Quarterly</option>
+              <option value="12" selected>Monthly</option>
+              <option value="365">Daily</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcCI()">Calculate</button>
+          <div class="result-box" id="ci-result">
+            <div class="result-row"><span class="result-label">Future Value</span><span class="result-val gold" id="ci-fv"></span></div>
+            <div class="result-row"><span class="result-label">Total Interest Earned</span><span class="result-val green" id="ci-int"></span></div>
+            <div class="result-row"><span class="result-label">Growth Multiple</span><span class="result-val" id="ci-mult"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SIP Calculator -->
+      <article class="tool-card" data-cat="finance" id="sip" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <meta itemprop="name" content="SIP Returns Calculator" />
+        <div class="card-header" onclick="toggle('sip-body','sip-chevron')">
+          <div class="card-icon" style="background:rgba(34,217,138,0.12)">💹</div>
+          <div class="card-title-wrap">
+            <div class="card-title">SIP Calculator</div>
+            <div class="card-desc">Mutual fund SIP returns</div>
+          </div>
+          <button class="card-toggle" id="sip-chevron" aria-label="Expand SIP Calculator">▼</button>
+        </div>
+        <div class="card-body" id="sip-body">
+          <div class="field"><label for="sip-m">Monthly Investment (₹)</label><input type="number" id="sip-m" value="5000" /></div>
+          <div class="field"><label>Expected Annual Return — <span class="range-val" id="sip-r-v">12%</span></label><input type="range" id="sip-r" min="1" max="30" step="0.5" value="12" oninput="document.getElementById('sip-r-v').textContent=this.value+'%'" /></div>
+          <div class="field"><label>Investment Period — <span class="range-val" id="sip-t-v">10 yr</span></label><input type="range" id="sip-t" min="1" max="40" step="1" value="10" oninput="document.getElementById('sip-t-v').textContent=this.value+' yr'" /></div>
+          <button class="calc-btn" onclick="calcSIP()">Calculate Returns</button>
+          <div class="result-box" id="sip-result">
+            <div class="result-row"><span class="result-label">Invested Amount</span><span class="result-val" id="sip-inv"></span></div>
+            <div class="result-row"><span class="result-label">Estimated Returns</span><span class="result-val green" id="sip-ret"></span></div>
+            <div class="result-row"><span class="result-label">Total Value</span><span class="result-val gold" id="sip-total"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PPF Calculator -->
+      <article class="tool-card" data-cat="finance">
+        <div class="card-header" onclick="toggle('ppf-body','ppf-chevron')">
+          <div class="card-icon" style="background:rgba(255,79,106,0.12)">🏦</div>
+          <div class="card-title-wrap">
+            <div class="card-title">PPF Calculator</div>
+            <div class="card-desc">Public Provident Fund returns</div>
+          </div>
+          <button class="card-toggle" id="ppf-chevron" aria-label="Expand PPF">▼</button>
+        </div>
+        <div class="card-body" id="ppf-body">
+          <div class="field"><label for="ppf-y">Yearly Investment (₹)</label><input type="number" id="ppf-y" value="150000" max="150000" /></div>
+          <div class="field"><label>PPF Rate — <span class="range-val" id="ppf-r-v">7.1%</span></label><input type="range" id="ppf-r" min="6" max="10" step="0.1" value="7.1" oninput="document.getElementById('ppf-r-v').textContent=this.value+'%'" /></div>
+          <div class="field"><label>Tenure — <span class="range-val" id="ppf-t-v">15 yr</span></label><input type="range" id="ppf-t" min="15" max="50" step="5" value="15" oninput="document.getElementById('ppf-t-v').textContent=this.value+' yr'" /></div>
+          <button class="calc-btn" onclick="calcPPF()">Calculate Maturity</button>
+          <div class="result-box" id="ppf-result">
+            <div class="result-row"><span class="result-label">Total Deposited</span><span class="result-val" id="ppf-dep"></span></div>
+            <div class="result-row"><span class="result-label">Interest Earned</span><span class="result-val green" id="ppf-int"></span></div>
+            <div class="result-row"><span class="result-label">Maturity Amount</span><span class="result-val gold" id="ppf-mat"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- FD Calculator -->
+      <article class="tool-card" data-cat="finance">
+        <div class="card-header" onclick="toggle('fd-body','fd-chevron')">
+          <div class="card-icon" style="background:rgba(0,212,255,0.1)">🔒</div>
+          <div class="card-title-wrap">
+            <div class="card-title">FD Calculator</div>
+            <div class="card-desc">Fixed deposit maturity amount</div>
+          </div>
+          <button class="card-toggle" id="fd-chevron" aria-label="Expand FD">▼</button>
+        </div>
+        <div class="card-body" id="fd-body">
+          <div class="field"><label for="fd-p">Principal (₹)</label><input type="number" id="fd-p" value="100000" /></div>
+          <div class="field"><label>Annual Rate — <span class="range-val" id="fd-r-v">7%</span></label><input type="range" id="fd-r" min="3" max="12" step="0.1" value="7" oninput="document.getElementById('fd-r-v').textContent=this.value+'%'" /></div>
+          <div class="field"><label>Tenure — <span class="range-val" id="fd-t-v">3 yr</span></label><input type="range" id="fd-t" min="1" max="10" step="1" value="3" oninput="document.getElementById('fd-t-v').textContent=this.value+' yr'" /></div>
+          <button class="calc-btn" onclick="calcFD()">Calculate Maturity</button>
+          <div class="result-box" id="fd-result">
+            <div class="result-row"><span class="result-label">Maturity Amount</span><span class="result-val gold" id="fd-mat"></span></div>
+            <div class="result-row"><span class="result-label">Interest Earned</span><span class="result-val green" id="fd-int"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- GST Calculator -->
+      <article class="tool-card" data-cat="finance">
+        <div class="card-header" onclick="toggle('gst-body','gst-chevron')">
+          <div class="card-icon" style="background:rgba(245,200,66,0.1)">🧾</div>
+          <div class="card-title-wrap">
+            <div class="card-title">GST Calculator</div>
+            <div class="card-desc">Inclusive & exclusive GST</div>
+          </div>
+          <button class="card-toggle" id="gst-chevron" aria-label="Expand GST">▼</button>
+        </div>
+        <div class="card-body" id="gst-body">
+          <div class="field"><label for="gst-amt">Amount (₹)</label><input type="number" id="gst-amt" value="1000" /></div>
+          <div class="field"><label for="gst-rate">GST Rate</label>
+            <select id="gst-rate">
+              <option value="5">5%</option>
+              <option value="12">12%</option>
+              <option value="18" selected>18%</option>
+              <option value="28">28%</option>
+            </select>
+          </div>
+          <div class="field"><label for="gst-type">Amount Type</label>
+            <select id="gst-type">
+              <option value="excl">Exclusive (add GST)</option>
+              <option value="incl">Inclusive (remove GST)</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcGST()">Calculate GST</button>
+          <div class="result-box" id="gst-result">
+            <div class="result-row"><span class="result-label">Base Amount</span><span class="result-val" id="gst-base"></span></div>
+            <div class="result-row"><span class="result-label">GST Amount</span><span class="result-val gold" id="gst-tax"></span></div>
+            <div class="result-row"><span class="result-label">Total Amount</span><span class="result-val cyan" id="gst-total"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tip Calculator -->
+      <article class="tool-card" data-cat="finance">
+        <div class="card-header" onclick="toggle('tip-body','tip-chevron')">
+          <div class="card-icon" style="background:rgba(34,217,138,0.1)">🍽️</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Tip Calculator</div>
+            <div class="card-desc">Split the bill & calculate tip</div>
+          </div>
+          <button class="card-toggle" id="tip-chevron" aria-label="Expand Tip">▼</button>
+        </div>
+        <div class="card-body" id="tip-body">
+          <div class="field"><label for="tip-bill">Bill Amount ($)</label><input type="number" id="tip-bill" value="50" /></div>
+          <div class="field"><label>Tip — <span class="range-val" id="tip-pct-v">15%</span></label><input type="range" id="tip-pct" min="5" max="50" step="5" value="15" oninput="document.getElementById('tip-pct-v').textContent=this.value+'%'" /></div>
+          <div class="field"><label>People — <span class="range-val" id="tip-pp-v">2</span></label><input type="range" id="tip-pp" min="1" max="20" step="1" value="2" oninput="document.getElementById('tip-pp-v').textContent=this.value" /></div>
+          <button class="calc-btn" onclick="calcTip()">Split Bill</button>
+          <div class="result-box" id="tip-result">
+            <div class="result-row"><span class="result-label">Tip Amount</span><span class="result-val gold" id="tip-tip"></span></div>
+            <div class="result-row"><span class="result-label">Total Bill</span><span class="result-val" id="tip-total"></span></div>
+            <div class="result-row"><span class="result-label">Per Person</span><span class="result-val green" id="tip-per"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Percentage Calculator -->
+      <article class="tool-card" data-cat="finance math">
+        <div class="card-header" onclick="toggle('pct-body','pct-chevron')">
+          <div class="card-icon" style="background:rgba(0,212,255,0.1)">%</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Percentage Calculator</div>
+            <div class="card-desc">%, change, and difference</div>
+          </div>
+          <button class="card-toggle" id="pct-chevron" aria-label="Expand Percentage">▼</button>
+        </div>
+        <div class="card-body" id="pct-body">
+          <div class="field"><label for="pct-a">What is <input type="number" id="pct-pct" value="15" style="width:60px;display:inline-block"> % of</label>
+            <input type="number" id="pct-a" value="200" /></div>
+          <button class="calc-btn" onclick="calcPct()">Calculate %</button>
+          <div class="result-box" id="pct-result">
+            <div class="result-row"><span class="result-label">Result</span><span class="result-val gold" id="pct-out"></span></div>
+          </div>
+          <div class="field" style="margin-top:1rem"><label>% Change from <input type="number" id="pct-from" value="80" style="width:60px;display:inline-block"> to <input type="number" id="pct-to" value="100" style="width:60px;display:inline-block"></label></div>
+          <button class="calc-btn" onclick="calcPctChange()">Calculate Change</button>
+          <div class="result-box" id="pct-chg-result">
+            <div class="result-row"><span class="result-label">% Change</span><span class="result-val green" id="pct-chg-out"></span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- AD SLOT 2 — In-content rectangle between Finance & Converters -->
+  <div class="ad-slot" style="margin-top:2rem">
+    <div class="ad-slot-inner" style="min-height:250px">
+      <span class="ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block;width:100%;min-height:250px"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="2222222222"
+           data-ad-format="rectangle"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━ CONVERTERS ━━━━━━━━━━ -->
+  <section id="converters" style="margin-top:2.5rem" aria-labelledby="conv-head">
+    <p class="section-title" id="conv-head">Unit & Currency Converters</p>
+    <div class="tools-grid">
+
+      <!-- Currency Converter -->
+      <article class="tool-card" data-cat="converter" id="currency" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <meta itemprop="name" content="Currency Converter" />
+        <div class="card-header" onclick="toggle('cur-body','cur-chevron')">
+          <div class="card-icon" style="background:rgba(245,200,66,0.12)">💱</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Currency Converter</div>
+            <div class="card-desc">Live approximate rates</div>
+          </div>
+          <button class="card-toggle" id="cur-chevron" aria-label="Expand Currency">▼</button>
+        </div>
+        <div class="card-body" id="cur-body">
+          <div class="field"><label for="cur-amt">Amount</label><input type="number" id="cur-amt" value="1" /></div>
+          <div class="field"><label for="cur-from">From</label>
+            <select id="cur-from">
+              <option value="USD">USD — US Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — British Pound</option>
+              <option value="INR" selected>INR — Indian Rupee</option>
+              <option value="JPY">JPY — Japanese Yen</option>
+              <option value="CAD">CAD — Canadian Dollar</option>
+              <option value="AUD">AUD — Australian Dollar</option>
+              <option value="SGD">SGD — Singapore Dollar</option>
+            </select>
+          </div>
+          <div class="field"><label for="cur-to">To</label>
+            <select id="cur-to">
+              <option value="USD" selected>USD — US Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — British Pound</option>
+              <option value="INR">INR — Indian Rupee</option>
+              <option value="JPY">JPY — Japanese Yen</option>
+              <option value="CAD">CAD — Canadian Dollar</option>
+              <option value="AUD">AUD — Australian Dollar</option>
+              <option value="SGD">SGD — Singapore Dollar</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcCurrency()">Convert</button>
+          <div class="result-box" id="cur-result">
+            <div class="result-row"><span class="result-label">Converted Amount</span><span class="result-val gold" id="cur-out"></span></div>
+            <div class="result-row"><span class="result-label">Exchange Rate</span><span class="result-val" id="cur-rate"></span></div>
+            <p style="font-size:0.72rem;color:var(--muted);margin-top:0.6rem">⚠ Indicative rates. Use your bank for exact figures.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Length Converter -->
+      <article class="tool-card" data-cat="converter">
+        <div class="card-header" onclick="toggle('len-body','len-chevron')">
+          <div class="card-icon" style="background:rgba(0,212,255,0.1)">📏</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Length Converter</div>
+            <div class="card-desc">km, miles, feet, cm, inches…</div>
+          </div>
+          <button class="card-toggle" id="len-chevron" aria-label="Expand Length">▼</button>
+        </div>
+        <div class="card-body" id="len-body">
+          <div class="field"><label for="len-val">Value</label><input type="number" id="len-val" value="1" /></div>
+          <div class="field"><label for="len-from">From</label>
+            <select id="len-from">
+              <option value="1000">Kilometer (km)</option>
+              <option value="1" selected>Meter (m)</option>
+              <option value="0.01">Centimeter (cm)</option>
+              <option value="0.001">Millimeter (mm)</option>
+              <option value="1609.34">Mile</option>
+              <option value="0.3048">Foot (ft)</option>
+              <option value="0.0254">Inch (in)</option>
+              <option value="0.9144">Yard (yd)</option>
+            </select>
+          </div>
+          <div class="field"><label for="len-to">To</label>
+            <select id="len-to">
+              <option value="1000">Kilometer (km)</option>
+              <option value="1">Meter (m)</option>
+              <option value="0.01">Centimeter (cm)</option>
+              <option value="0.001">Millimeter (mm)</option>
+              <option value="1609.34" selected>Mile</option>
+              <option value="0.3048">Foot (ft)</option>
+              <option value="0.0254">Inch (in)</option>
+              <option value="0.9144">Yard (yd)</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcUnit('len-val','len-from','len-to','len-res')">Convert</button>
+          <div class="result-box" id="len-result">
+            <div class="result-row"><span class="result-label">Result</span><span class="result-val gold" id="len-res"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Weight Converter -->
+      <article class="tool-card" data-cat="converter">
+        <div class="card-header" onclick="toggle('wt-body','wt-chevron')">
+          <div class="card-icon" style="background:rgba(34,217,138,0.1)">⚖️</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Weight Converter</div>
+            <div class="card-desc">kg, lbs, grams, ounces…</div>
+          </div>
+          <button class="card-toggle" id="wt-chevron" aria-label="Expand Weight">▼</button>
+        </div>
+        <div class="card-body" id="wt-body">
+          <div class="field"><label for="wt-val">Value</label><input type="number" id="wt-val" value="1" /></div>
+          <div class="field"><label for="wt-from">From</label>
+            <select id="wt-from">
+              <option value="1000">Kilogram (kg)</option>
+              <option value="1" selected>Gram (g)</option>
+              <option value="0.001">Milligram (mg)</option>
+              <option value="453.592">Pound (lb)</option>
+              <option value="28.3495">Ounce (oz)</option>
+              <option value="1000000">Metric Ton</option>
+            </select>
+          </div>
+          <div class="field"><label for="wt-to">To</label>
+            <select id="wt-to">
+              <option value="1000">Kilogram (kg)</option>
+              <option value="1">Gram (g)</option>
+              <option value="0.001">Milligram (mg)</option>
+              <option value="453.592" selected>Pound (lb)</option>
+              <option value="28.3495">Ounce (oz)</option>
+              <option value="1000000">Metric Ton</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcUnit('wt-val','wt-from','wt-to','wt-res')">Convert</button>
+          <div class="result-box" id="wt-result">
+            <div class="result-row"><span class="result-label">Result</span><span class="result-val gold" id="wt-res"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Temperature Converter -->
+      <article class="tool-card" data-cat="converter">
+        <div class="card-header" onclick="toggle('tmp-body','tmp-chevron')">
+          <div class="card-icon" style="background:rgba(255,79,106,0.1)">🌡️</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Temperature Converter</div>
+            <div class="card-desc">°C, °F, Kelvin</div>
+          </div>
+          <button class="card-toggle" id="tmp-chevron" aria-label="Expand Temperature">▼</button>
+        </div>
+        <div class="card-body" id="tmp-body">
+          <div class="field"><label for="tmp-val">Temperature</label><input type="number" id="tmp-val" value="100" /></div>
+          <div class="field"><label for="tmp-from">From</label>
+            <select id="tmp-from">
+              <option value="C" selected>Celsius (°C)</option>
+              <option value="F">Fahrenheit (°F)</option>
+              <option value="K">Kelvin (K)</option>
+            </select>
+          </div>
+          <div class="field"><label for="tmp-to">To</label>
+            <select id="tmp-to">
+              <option value="C">Celsius (°C)</option>
+              <option value="F" selected>Fahrenheit (°F)</option>
+              <option value="K">Kelvin (K)</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcTemp()">Convert</button>
+          <div class="result-box" id="tmp-result">
+            <div class="result-row"><span class="result-label">Result</span><span class="result-val gold" id="tmp-res"></span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- AD SLOT 3 — In-content between Converters & Health -->
+  <div class="ad-slot" style="margin-top:2rem">
+    <div class="ad-slot-inner" style="min-height:90px">
+      <span class="ad-label">Advertisement</span>
+      <ins class="adsbygoogle"
+           style="display:block;width:100%;min-height:90px"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="3333333333"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━ HEALTH ━━━━━━━━━━ -->
+  <section id="health" style="margin-top:2.5rem" aria-labelledby="health-head">
+    <p class="section-title" id="health-head">Health Calculators</p>
+    <div class="tools-grid">
+
+      <!-- BMI Calculator -->
+      <article class="tool-card" data-cat="health" id="bmi" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <meta itemprop="name" content="BMI Calculator" />
+        <div class="card-header" onclick="toggle('bmi-body','bmi-chevron')">
+          <div class="card-icon" style="background:rgba(34,217,138,0.12)">🏃</div>
+          <div class="card-title-wrap">
+            <div class="card-title">BMI Calculator</div>
+            <div class="card-desc">Body Mass Index + category</div>
+          </div>
+          <button class="card-toggle" id="bmi-chevron" aria-label="Expand BMI">▼</button>
+        </div>
+        <div class="card-body" id="bmi-body">
+          <div class="field"><label for="bmi-h">Height (cm)</label><input type="number" id="bmi-h" value="170" /></div>
+          <div class="field"><label for="bmi-w">Weight (kg)</label><input type="number" id="bmi-w" value="70" /></div>
+          <button class="calc-btn" onclick="calcBMI()">Calculate BMI</button>
+          <div class="result-box" id="bmi-result">
+            <div class="result-row"><span class="result-label">BMI Score</span><span class="result-val gold" id="bmi-score"></span></div>
+            <div class="result-row"><span class="result-label">Category</span><span class="result-val" id="bmi-cat"></span></div>
+            <div class="result-row"><span class="result-label">Ideal Weight Range</span><span class="result-val green" id="bmi-ideal"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Calorie Calculator -->
+      <article class="tool-card" data-cat="health">
+        <div class="card-header" onclick="toggle('cal-body','cal-chevron')">
+          <div class="card-icon" style="background:rgba(245,200,66,0.1)">🔥</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Calorie Calculator</div>
+            <div class="card-desc">Daily calorie needs (BMR)</div>
+          </div>
+          <button class="card-toggle" id="cal-chevron" aria-label="Expand Calorie">▼</button>
+        </div>
+        <div class="card-body" id="cal-body">
+          <div class="field"><label for="cal-age">Age</label><input type="number" id="cal-age" value="30" /></div>
+          <div class="field"><label for="cal-h">Height (cm)</label><input type="number" id="cal-h" value="170" /></div>
+          <div class="field"><label for="cal-w">Weight (kg)</label><input type="number" id="cal-w" value="70" /></div>
+          <div class="field"><label for="cal-sex">Sex</label>
+            <select id="cal-sex"><option value="m">Male</option><option value="f">Female</option></select>
+          </div>
+          <div class="field"><label for="cal-act">Activity Level</label>
+            <select id="cal-act">
+              <option value="1.2">Sedentary (desk job)</option>
+              <option value="1.375">Lightly Active (1–3 days/week)</option>
+              <option value="1.55" selected>Moderately Active (3–5 days)</option>
+              <option value="1.725">Very Active (6–7 days)</option>
+              <option value="1.9">Extremely Active (athlete)</option>
+            </select>
+          </div>
+          <button class="calc-btn" onclick="calcCalorie()">Calculate</button>
+          <div class="result-box" id="cal-result">
+            <div class="result-row"><span class="result-label">BMR (Base Metabolic Rate)</span><span class="result-val" id="cal-bmr"></span></div>
+            <div class="result-row"><span class="result-label">Maintenance Calories</span><span class="result-val gold" id="cal-tdee"></span></div>
+            <div class="result-row"><span class="result-label">Weight Loss (−500 cal)</span><span class="result-val green" id="cal-loss"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Age Calculator -->
+      <article class="tool-card" data-cat="health math">
+        <div class="card-header" onclick="toggle('age-body','age-chevron')">
+          <div class="card-icon" style="background:rgba(0,212,255,0.1)">🎂</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Age Calculator</div>
+            <div class="card-desc">Exact age in years, months, days</div>
+          </div>
+          <button class="card-toggle" id="age-chevron" aria-label="Expand Age">▼</button>
+        </div>
+        <div class="card-body" id="age-body">
+          <div class="field"><label for="age-dob">Date of Birth</label><input type="date" id="age-dob" /></div>
+          <button class="calc-btn" onclick="calcAge()">Calculate Age</button>
+          <div class="result-box" id="age-result">
+            <div class="result-row"><span class="result-label">Exact Age</span><span class="result-val gold" id="age-out"></span></div>
+            <div class="result-row"><span class="result-label">Days Lived</span><span class="result-val green" id="age-days"></span></div>
+            <div class="result-row"><span class="result-label">Next Birthday In</span><span class="result-val" id="age-next"></span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━ MATH & TEXT ━━━━━━━━━━ -->
+  <section id="math" style="margin-top:2.5rem" aria-labelledby="math-head">
+    <p class="section-title" id="math-head">Math & Text Tools</p>
+    <div class="tools-grid">
+
+      <!-- Scientific Calculator -->
+      <article class="tool-card" data-cat="math">
+        <div class="card-header" onclick="toggle('sci-body','sci-chevron')">
+          <div class="card-icon" style="background:rgba(0,212,255,0.1)">🧮</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Scientific Calculator</div>
+            <div class="card-desc">Square root, power, log, trig</div>
+          </div>
+          <button class="card-toggle" id="sci-chevron" aria-label="Expand Sci Calc">▼</button>
+        </div>
+        <div class="card-body" id="sci-body">
+          <div class="field"><label for="sci-expr">Expression</label>
+            <input type="text" id="sci-expr" value="Math.sqrt(144)" placeholder="e.g. Math.sqrt(144)" />
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.75rem">
+            <button class="tab-btn" onclick="sciInsert('Math.sqrt(')">√</button>
+            <button class="tab-btn" onclick="sciInsert('Math.pow(,2)')">x²</button>
+            <button class="tab-btn" onclick="sciInsert('Math.log(')">ln</button>
+            <button class="tab-btn" onclick="sciInsert('Math.log10(')">log</button>
+            <button class="tab-btn" onclick="sciInsert('Math.sin(')">sin</button>
+            <button class="tab-btn" onclick="sciInsert('Math.cos(')">cos</button>
+            <button class="tab-btn" onclick="sciInsert('Math.PI')">π</button>
+            <button class="tab-btn" onclick="sciInsert('Math.E')">e</button>
+          </div>
+          <button class="calc-btn" onclick="calcSci()">Calculate</button>
+          <div class="result-box" id="sci-result">
+            <div class="result-row"><span class="result-label">Result</span><span class="result-val gold" id="sci-out"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Word Counter -->
+      <article class="tool-card" data-cat="text">
+        <div class="card-header" onclick="toggle('wc-body','wc-chevron')">
+          <div class="card-icon" style="background:rgba(245,200,66,0.1)">📝</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Word Counter</div>
+            <div class="card-desc">Words, characters, reading time</div>
+          </div>
+          <button class="card-toggle" id="wc-chevron" aria-label="Expand Word Counter">▼</button>
+        </div>
+        <div class="card-body" id="wc-body">
+          <div class="field">
+            <label for="wc-text">Your Text</label>
+            <textarea id="wc-text" style="width:100%;height:100px;background:var(--slate);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:0.6rem;font-size:0.85rem;resize:vertical;outline:none;" placeholder="Paste or type text here…" oninput="liveWordCount()"></textarea>
+          </div>
+          <div class="result-box show" id="wc-result" style="display:block">
+            <div class="result-row"><span class="result-label">Words</span><span class="result-val gold" id="wc-words">0</span></div>
+            <div class="result-row"><span class="result-label">Characters (no spaces)</span><span class="result-val" id="wc-chars">0</span></div>
+            <div class="result-row"><span class="result-label">Reading Time</span><span class="result-val green" id="wc-read">0 sec</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Random Number -->
+      <article class="tool-card" data-cat="math">
+        <div class="card-header" onclick="toggle('rng-body','rng-chevron')">
+          <div class="card-icon" style="background:rgba(34,217,138,0.1)">🎲</div>
+          <div class="card-title-wrap">
+            <div class="card-title">Random Number</div>
+            <div class="card-desc">Generate random integers</div>
+          </div>
+          <button class="card-toggle" id="rng-chevron" aria-label="Expand RNG">▼</button>
+        </div>
+        <div class="card-body" id="rng-body">
+          <div class="field"><label for="rng-min">Min</label><input type="number" id="rng-min" value="1" /></div>
+          <div class="field"><label for="rng-max">Max</label><input type="number" id="rng-max" value="100" /></div>
+          <div class="field"><label>Count — <span class="range-val" id="rng-cnt-v">1</span></label><input type="range" id="rng-cnt" min="1" max="10" step="1" value="1" oninput="document.getElementById('rng-cnt-v').textContent=this.value" /></div>
+          <button class="calc-btn" onclick="calcRNG()">Generate</button>
+          <div class="result-box" id="rng-result">
+            <div class="result-row"><span class="result-label">Numbers</span><span class="result-val gold" id="rng-out"></span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- AD SLOT 4 — Pre-footer banner -->
+<div class="ad-slot" style="margin-top:1.5rem;margin-bottom:1.5rem">
+  <div class="ad-slot-inner" style="min-height:90px">
+    <span class="ad-label">Advertisement</span>
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:90px"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="4444444444"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <a href="#">FinTools Hub</a> — Free financial calculators & tools for everyone.</p>
+  <p style="margin-top:0.4rem">All calculations are for informational purposes only. Consult a financial advisor for investment decisions.</p>
+</footer>
+
+<script>
+/* ─── UTILS ─────────────────────────────── */
+const fmt = (n, cur='₹') => {
+  if (n >= 1e7) return cur + (n/1e7).toFixed(2) + ' Cr';
+  if (n >= 1e5) return cur + (n/1e5).toFixed(2) + ' L';
+  return cur + n.toLocaleString('en-IN', {maximumFractionDigits:2});
+};
+const fmtUSD = n => '$' + n.toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2});
+
+function toggle(bodyId, chevId) {
+  const b = document.getElementById(bodyId);
+  const c = document.getElementById(chevId);
+  const open = b.classList.toggle('open');
+  c.classList.toggle('open', open);
+}
+function showResult(id) {
+  document.getElementById(id).classList.add('show');
+}
+
+/* ─── SEARCH & FILTER ───────────────────── */
+function filterTools(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('.tool-card').forEach(c => {
+    const text = c.innerText.toLowerCase();
+    c.dataset.hidden = (!text.includes(q) && q !== '') ? 'true' : 'false';
+  });
+}
+
+function filterCat(cat) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.tool-card').forEach(c => {
+    const cats = c.dataset.cat || '';
+    c.dataset.hidden = (cat !== 'all' && !cats.includes(cat)) ? 'true' : 'false';
+  });
+}
+
+/* ─── EMI ───────────────────────────────── */
+function calcEMI() {
+  const P = +document.getElementById('emi-p').value;
+  const r = +document.getElementById('emi-r').value / 12 / 100;
+  const n = +document.getElementById('emi-t').value * 12;
+  const emi = P * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1);
+  const total = emi * n;
+  document.getElementById('emi-monthly').textContent = fmt(emi);
+  document.getElementById('emi-total').textContent = fmt(total);
+  document.getElementById('emi-interest').textContent = fmt(total - P);
+  showResult('emi-result');
+}
+
+/* ─── COMPOUND INTEREST ─────────────────── */
+function calcCI() {
+  const P = +document.getElementById('ci-p').value;
+  const r = +document.getElementById('ci-r').value / 100;
+  const t = +document.getElementById('ci-t').value;
+  const n = +document.getElementById('ci-freq').value;
+  const fv = P * Math.pow(1 + r/n, n*t);
+  document.getElementById('ci-fv').textContent = fmt(fv);
+  document.getElementById('ci-int').textContent = fmt(fv - P);
+  document.getElementById('ci-mult').textContent = (fv/P).toFixed(2) + 'x';
+  showResult('ci-result');
+}
+
+/* ─── SIP ───────────────────────────────── */
+function calcSIP() {
+  const m = +document.getElementById('sip-m').value;
+  const r = +document.getElementById('sip-r').value / 12 / 100;
+  const n = +document.getElementById('sip-t').value * 12;
+  const fv = m * ((Math.pow(1+r,n)-1)/r) * (1+r);
+  const inv = m * n;
+  document.getElementById('sip-inv').textContent = fmt(inv);
+  document.getElementById('sip-ret').textContent = fmt(fv - inv);
+  document.getElementById('sip-total').textContent = fmt(fv);
+  showResult('sip-result');
+}
+
+/* ─── PPF ───────────────────────────────── */
+function calcPPF() {
+  const y = +document.getElementById('ppf-y').value;
+  const r = +document.getElementById('ppf-r').value / 100;
+  const t = +document.getElementById('ppf-t').value;
+  let bal = 0;
+  for(let i=0;i<t;i++) bal = (bal + y) * (1+r);
+  document.getElementById('ppf-dep').textContent = fmt(y*t);
+  document.getElementById('ppf-int').textContent = fmt(bal - y*t);
+  document.getElementById('ppf-mat').textContent = fmt(bal);
+  showResult('ppf-result');
+}
+
+/* ─── FD ────────────────────────────────── */
+function calcFD() {
+  const P = +document.getElementById('fd-p').value;
+  const r = +document.getElementById('fd-r').value / 100;
+  const t = +document.getElementById('fd-t').value;
+  const mat = P * Math.pow(1 + r/4, 4*t);
+  document.getElementById('fd-mat').textContent = fmt(mat);
+  document.getElementById('fd-int').textContent = fmt(mat - P);
+  showResult('fd-result');
+}
+
+/* ─── GST ───────────────────────────────── */
+function calcGST() {
+  const amt = +document.getElementById('gst-amt').value;
+  const rate = +document.getElementById('gst-rate').value / 100;
+  const type = document.getElementById('gst-type').value;
+  let base, tax, total;
+  if(type === 'excl') { base=amt; tax=amt*rate; total=amt+tax; }
+  else { total=amt; base=amt/(1+rate); tax=amt-base; }
+  document.getElementById('gst-base').textContent = fmt(base);
+  document.getElementById('gst-tax').textContent = fmt(tax);
+  document.getElementById('gst-total').textContent = fmt(total);
+  showResult('gst-result');
+}
+
+/* ─── TIP ───────────────────────────────── */
+function calcTip() {
+  const bill = +document.getElementById('tip-bill').value;
+  const pct = +document.getElementById('tip-pct').value / 100;
+  const pp = +document.getElementById('tip-pp').value;
+  const tip = bill * pct;
+  const total = bill + tip;
+  document.getElementById('tip-tip').textContent = fmtUSD(tip);
+  document.getElementById('tip-total').textContent = fmtUSD(total);
+  document.getElementById('tip-per').textContent = fmtUSD(total/pp);
+  showResult('tip-result');
+}
+
+/* ─── PERCENTAGE ────────────────────────── */
+function calcPct() {
+  const p = +document.getElementById('pct-pct').value;
+  const a = +document.getElementById('pct-a').value;
+  document.getElementById('pct-out').textContent = (p/100*a).toFixed(4);
+  showResult('pct-result');
+}
+function calcPctChange() {
+  const from = +document.getElementById('pct-from').value;
+  const to = +document.getElementById('pct-to').value;
+  const chg = ((to-from)/Math.abs(from)*100).toFixed(2);
+  const el = document.getElementById('pct-chg-out');
+  el.textContent = (chg>0?'+':'')+chg+'%';
+  el.className = 'result-val ' + (chg>=0?'green':'red');
+  showResult('pct-chg-result');
+}
+
+/* ─── CURRENCY ──────────────────────────── */
+const RATES = {USD:1,EUR:0.92,GBP:0.79,INR:83.5,JPY:150.2,CAD:1.36,AUD:1.52,SGD:1.34};
+function calcCurrency() {
+  const amt = +document.getElementById('cur-amt').value;
+  const from = document.getElementById('cur-from').value;
+  const to = document.getElementById('cur-to').value;
+  const rate = RATES[to] / RATES[from];
+  document.getElementById('cur-out').textContent = (amt*rate).toFixed(4) + ' ' + to;
+  document.getElementById('cur-rate').textContent = '1 ' + from + ' = ' + rate.toFixed(4) + ' ' + to;
+  showResult('cur-result');
+}
+
+/* ─── UNIT (generic) ────────────────────── */
+function calcUnit(valId, fromId, toId, resId) {
+  const val = +document.getElementById(valId).value;
+  const from = +document.getElementById(fromId).value;
+  const to = +document.getElementById(toId).value;
+  const result = (val * from / to);
+  document.getElementById(resId).textContent = result.toLocaleString('en', {maximumFractionDigits:6});
+  const bodyId = valId.split('-')[0] + '-result';
+  showResult(bodyId);
+}
+
+/* ─── TEMPERATURE ───────────────────────── */
+function calcTemp() {
+  const v = +document.getElementById('tmp-val').value;
+  const from = document.getElementById('tmp-from').value;
+  const to = document.getElementById('tmp-to').value;
+  let celsius;
+  if(from==='C') celsius=v;
+  else if(from==='F') celsius=(v-32)*5/9;
+  else celsius=v-273.15;
+  let result;
+  if(to==='C') result=celsius;
+  else if(to==='F') result=celsius*9/5+32;
+  else result=celsius+273.15;
+  document.getElementById('tmp-res').textContent = result.toFixed(2) + ' °' + to;
+  showResult('tmp-result');
+}
+
+/* ─── BMI ───────────────────────────────── */
+function calcBMI() {
+  const h = +document.getElementById('bmi-h').value / 100;
+  const w = +document.getElementById('bmi-w').value;
+  const bmi = w / (h*h);
+  let cat, cls;
+  if(bmi<18.5){cat='Underweight';cls='red';}
+  else if(bmi<25){cat='Normal';cls='green';}
+  else if(bmi<30){cat='Overweight';cls='gold';}
+  else{cat='Obese';cls='red';}
+  document.getElementById('bmi-score').textContent = bmi.toFixed(1);
+  const catEl = document.getElementById('bmi-cat');
+  catEl.textContent = cat; catEl.className = 'result-val '+cls;
+  const lo = (18.5*h*h).toFixed(1), hi = (24.9*h*h).toFixed(1);
+  document.getElementById('bmi-ideal').textContent = lo + ' – ' + hi + ' kg';
+  showResult('bmi-result');
+}
+
+/* ─── CALORIE ───────────────────────────── */
+function calcCalorie() {
+  const age = +document.getElementById('cal-age').value;
+  const h = +document.getElementById('cal-h').value;
+  const w = +document.getElementById('cal-w').value;
+  const sex = document.getElementById('cal-sex').value;
+  const act = +document.getElementById('cal-act').value;
+  let bmr = sex==='m' ? 10*w+6.25*h-5*age+5 : 10*w+6.25*h-5*age-161;
+  const tdee = bmr * act;
+  document.getElementById('cal-bmr').textContent = Math.round(bmr) + ' kcal';
+  document.getElementById('cal-tdee').textContent = Math.round(tdee) + ' kcal';
+  document.getElementById('cal-loss').textContent = Math.round(tdee-500) + ' kcal';
+  showResult('cal-result');
+}
+
+/* ─── AGE ───────────────────────────────── */
+function calcAge() {
+  const dob = new Date(document.getElementById('age-dob').value);
+  if(isNaN(dob)) return;
+  const now = new Date();
+  let y = now.getFullYear()-dob.getFullYear();
+  let mo = now.getMonth()-dob.getMonth();
+  let d = now.getDate()-dob.getDate();
+  if(d<0){mo--; d+=new Date(now.getFullYear(),now.getMonth(),0).getDate();}
+  if(mo<0){y--;mo+=12;}
+  const days = Math.floor((now-dob)/86400000);
+  const next = new Date(now.getFullYear(), dob.getMonth(), dob.getDate());
+  if(next<=now) next.setFullYear(next.getFullYear()+1);
+  const daysLeft = Math.ceil((next-now)/86400000);
+  document.getElementById('age-out').textContent = y+' yr '+mo+' mo '+d+' days';
+  document.getElementById('age-days').textContent = days.toLocaleString()+' days';
+  document.getElementById('age-next').textContent = daysLeft+' days';
+  showResult('age-result');
+}
+
+/* ─── SCIENTIFIC ────────────────────────── */
+function sciInsert(txt) {
+  const el = document.getElementById('sci-expr');
+  el.value += txt; el.focus();
+}
+function calcSci() {
+  try {
+    const result = Function('"use strict"; return (' + document.getElementById('sci-expr').value + ')')();
+    document.getElementById('sci-out').textContent = (+result).toPrecision(10).replace(/\.?0+$/,'');
+  } catch(e) { document.getElementById('sci-out').textContent = 'Error'; }
+  showResult('sci-result');
+}
+
+/* ─── WORD COUNTER ──────────────────────── */
+function liveWordCount() {
+  const txt = document.getElementById('wc-text').value;
+  const words = txt.trim() ? txt.trim().split(/\s+/).length : 0;
+  const chars = txt.replace(/\s/g,'').length;
+  const secs = Math.ceil(words/3.3);
+  document.getElementById('wc-words').textContent = words;
+  document.getElementById('wc-chars').textContent = chars;
+  document.getElementById('wc-read').textContent = secs < 60 ? secs+' sec' : Math.ceil(secs/60)+' min';
+}
+
+/* ─── RNG ───────────────────────────────── */
+function calcRNG() {
+  const min = +document.getElementById('rng-min').value;
+  const max = +document.getElementById('rng-max').value;
+  const cnt = +document.getElementById('rng-cnt').value;
+  const nums = Array.from({length:cnt}, ()=>Math.floor(Math.random()*(max-min+1))+min);
+  document.getElementById('rng-out').textContent = nums.join(', ');
+  showResult('rng-result');
+}
+
+/* ─── INIT ──────────────────────────────── */
+document.getElementById('age-dob').valueAsDate = new Date(1994, 0, 1);
+</script>
+</body>
+</html>
